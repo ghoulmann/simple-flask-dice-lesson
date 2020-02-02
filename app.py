@@ -1,4 +1,4 @@
-from random import randint
+from random import randint, choice
 from flask import Flask
 app = Flask(__name__)
 @app.route('/')
@@ -20,7 +20,8 @@ def d6():
 def d6ab():
     d6a = randint(1,6)
     d6b = randint(1,6)
-    return str(d6a) + " &nbsp; " + str(d6b)
+    sum = str(d6a + d6b)
+    return str(d6a) + " and " + str(d6b) + " (sum: %s)" % sum
 @app.route('/d50')
 def d50():
     return str(randint(1, 50))
@@ -30,4 +31,6 @@ def d8():
 @app.route('/d10')
 def d10():
     return str(randint(1, 10))
-
+@app.route('/coin')
+def coin():
+    return choice(['heads', 'tails'])
