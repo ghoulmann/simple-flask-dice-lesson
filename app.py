@@ -1,9 +1,9 @@
 from die import Die
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 @app.route('/')
 def hello_world():
-    return 'Dice Roller'
+    return render_template('index.html', message="Roll the Bones")
 """
 @app.route('/d20')
 def d20():
@@ -47,7 +47,7 @@ def coin():
 @app.route('/<size>')
 def roll(size):
     a = Die(size)
-    return a.result
+    return render_template('index.html', message=a.result, title="Bone Rolled")
 @app.route('/2d6')
 def d6ab():
     a = Die(6)
