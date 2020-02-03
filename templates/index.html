@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+  
+  <div class="container" style="width: max-content;">
+    <h1 style="text-align: center;">  {{ message }}  </h1>
+  <figure style="float:left;">
+      <a title="Rolling the Bones - return home" alt="man in suit rolling 2d6" href="/"><img src="/static/images/playing-dice.png"></a>
+  </figure>
+  <div class="container" style="float:right">
+    <p><a href="/coin">coin</a></p>
+    <p><a href="/4">d4</a></p>
+    <p><a href="/6">d6</a></p>
+    <p><a href="/2d6">2d6</a></p>
+    <p><a href="/8">d8</a></p>
+    <p><a href="/10">d10</a></p>
+    <p><a href="/12">d12</a></p>
+    <p><a href="/20">d20</a></p>
+    <p><a href="/50">d50</a></p>
+    <p><a href="/100">d100</a></p>
+    <p><a href="/120">d120</a></p>
+  </div>
+  </div>
+{% endblock %}
