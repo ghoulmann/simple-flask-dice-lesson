@@ -6,6 +6,7 @@ class Die(object):
         self.timestamp = datetime.now()
         self.result = self.roll(self.size)
     def roll(self, size):
+        size = int(size)
         if size % 2 == 0:
             if size == 2:
                 return choice(['heads', 'tails']) 

@@ -4,6 +4,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     return 'Dice Roller'
+"""
 @app.route('/d20')
 def d20():
     a = Die(20)
@@ -20,12 +21,7 @@ def d4():
 def d6():
     a = Die(6)
     return a.result
-@app.route('/2d6')
-def d6ab():
-    a = Die(6)
-    b = Die(6)
-    together = int(a.result) + int(b.result)
-    return a.result + ", " + b.result + ": " + str(together)
+
 @app.route('/d50')
 def d50():
     a = Die(50)
@@ -42,7 +38,19 @@ def d10():
 def d12():
     a = Die(12)
     return a.result
+"""
 @app.route('/coin')
 def coin():
     a = Die(2)
     return a.result
+
+@app.route('/<size>')
+def roll(size):
+    a = Die(size)
+    return a.result
+@app.route('/2d6')
+def d6ab():
+    a = Die(6)
+    b = Die(6)
+    together = int(a.result) + int(b.result)
+    return a.result + ", " + b.result + ": " + str(together)
