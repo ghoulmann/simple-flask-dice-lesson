@@ -1,3 +1,4 @@
+from attribute import Attribute
 from die import Die
 from dice import Dice
 from flask import Flask, render_template
@@ -61,3 +62,9 @@ def character():
     rolls = Dice(6,4,6)
     attributes = rolls.attributes
     return render_template('character.html', attributes = attributes)
+@app.route('/attribute')
+@app.route('/trait')
+def attribute():
+    roll = Attribute()
+    
+    return render_template('index.html', message = roll.result)
