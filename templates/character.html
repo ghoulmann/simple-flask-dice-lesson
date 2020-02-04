@@ -4,10 +4,18 @@
 {% block content %}
   
   <div class="container" style="width: max-content;">
-    <h1 style="text-align: center;">  {{ message }}  </h1>
+    <h1 style="text-align: center;">Dicer</h1>
   <figure style="float:left;">
       <a title="Rolling the Bones - return home" alt="man in suit rolling 2d6" href="/"><img src="/static/images/playing-dice.png"></a>
   </figure>
+  <div class="container" style="float:right">
+  <h2>Attributes</h2>
+    {% for k, v in attributes.items() %}
+
+      <p>{{ k }}:&nbsp; {{ v }}</p> 
+  {% endfor %}
+  </div>
+  <!--
   <div class="container" style="float:right">
     <p><a href="/coin">coin</a></p>
     <p><a href="/4">d4</a></p>
@@ -20,7 +28,7 @@
     <p><a href="/50">d50</a></p>
     <p><a href="/100">d100</a></p>
     <p><a href="/120">d120</a></p>
-    <p><a href="/character">Character Attributes</a></p>
   </div>
+  -->
   </div>
 {% endblock %}

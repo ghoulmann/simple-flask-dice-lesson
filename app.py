@@ -1,4 +1,5 @@
 from die import Die
+from dice import Dice
 from flask import Flask, render_template
 app = Flask(__name__)
 @app.route('/')
@@ -55,3 +56,8 @@ def d6ab():
     together = int(a.result) + int(b.result)
 
     return render_template('index.html', message=(str(a.result) + " and " + str(b.result) + " | sum = " + str(together)))
+@app.route('/character')
+def character():
+    rolls = Dice(6,4,6)
+    attributes = rolls.attributes
+    return render_template('character.html', attributes = attributes)
