@@ -44,12 +44,15 @@ def d12():
 
 @app.route('/<size>')
 def roll(size):
+    #try:
     a = Die(size)
-    return render_template('index.html', message=a.result, title="Bone Rolled")
+    return render_template('index.html', message=a.result, title="Bone Rolled - ")
+    #except ValueError as e:
+    #    return "Selected endpoint must be int"
 @app.route('/coin')
 def coin():
     a = Die(2)
-    return render_template('index.html', message=a.result, title="Coin Flipped")
+    return render_template('index.html', message=a.result, title="Coin Flipped - ")
 @app.route('/2d6')
 def d6ab():
     a = Die(6)
@@ -66,5 +69,4 @@ def character():
 @app.route('/trait')
 def attribute():
     roll = Attribute()
-    
     return render_template('index.html', message = roll.result)
