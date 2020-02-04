@@ -18,5 +18,5 @@ class Dice(object):
     def getScores(self):
         attributes = {}
         for i in range(1, self.rounds+1):
-            attributes['attribute' + str(i)] = sum(self.rolls[i])
+            attributes['Attribute ' + str(i)] = sum(self.rolls[i])
         return attributes

@@ -12,6 +12,6 @@ class Die(object):
                 return choice(['heads', 'tails']) 
             return str(randint(1, size))
         else:
-            raise ValueError
+            return "Error: Requires even number"
 
 
