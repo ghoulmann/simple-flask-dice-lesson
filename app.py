@@ -1,44 +1,23 @@
+from flask_sqlalchemy import SQLAlchemy
+#from datetime import timestamp
 from die import Die
+#from models import Die
 from flask import Flask, render_template
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+db = SQLAlchemy(app)
+
+class Roll(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    result = db.Column(db.Integer, unique=False, nullable=False)
+    size = db.Column(db.Integer, unique=True, nullable=False)
+    timestamp = db.Column(db.DateTime(timezone=False), unique=False, nullable=False)
+    def __repr__(self):
+        return '<Roll %r>' % self.timestamp
+
 @app.route('/')
 def hello_world():
-    return render_template('index.html', message="Roll the Bones")
-"""
-@app.route('/d20')
-def d20():
-    a = Die(20)
-    return a.result
-@app.route('/d100')
-def d100():
-    a = Die(100)
-    return a.result
-@app.route('/d4')
-def d4():
-    a = Die(4)
-    return a.result
-@app.route('/d6')
-def d6():
-    a = Die(6)
-    return a.result
-
-@app.route('/d50')
-def d50():
-    a = Die(50)
-    return a.result
-@app.route('/d8')
-def d8():
-    a = Die(8)
-    return a.result
-@app.route('/d10')
-def d10():
-    a = Die(10)
-    return a.result
-@app.route('/d12')
-def d12():
-    a = Die(12)
-    return a.result
-"""
+    return render_template('index.html', message="Roll 'Bones")
 
 @app.route('/<size>')
 def roll(size):
@@ -53,5 +32,4 @@ def d6ab():
     a = Die(6)
     b = Die(6)
     together = int(a.result) + int(b.result)
-
     return render_template('index.html', message=(str(a.result) + " and " + str(b.result) + " | sum = " + str(together)))
