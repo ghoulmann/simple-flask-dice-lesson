@@ -64,7 +64,7 @@ def d6ab():
 def character():
     rolls = Dice(6,4,6)
     attributes = rolls.attributes
-    return render_template('character.html', attributes = attributes)
+    return render_template('character.html', message = "Character Roll", attributes = attributes)
 @app.route('/attribute')
 @app.route('/trait')
 def attribute():

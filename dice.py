@@ -2,7 +2,7 @@ from die import Die
 
 class Dice(object):
     def __init__(self, size, count, rounds):
-        self.size = size
+        self.size = size # dice max
         self.count = count
         self.rounds = rounds
         self.rolls = {}
